@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>NASA 证书浏览器（本地离线）</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <div class="logo">NASA</div>
+      <div class="brand-text">
+        <div class="title">证书浏览器</div>
+        <div class="subtitle">本地离线 · 列表/搜索/预览</div>
+      </div>
+    </div>
+
+    <div class="actions">
+      <input id="searchInput" type="search" placeholder="搜索：标题 / 日期 / 姓名 / 编号 / 关键词…" autocomplete="off" />
+      <select id="sortSelect" title="排序方式">
+        <option value="date_desc">日期：新 → 旧</option>
+        <option value="date_asc">日期：旧 → 新</option>
+        <option value="title_asc">标题：A → Z</option>
+        <option value="name_asc">姓名：A → Z</option>
+      </select>
+    </div>
+  </header>
+
+  <main class="layout">
+    <section class="sidebar">
+      <div class="panel">
+        <div class="panel-title">统计</div>
+        <div class="stats">
+          <div class="stat">
+            <div class="stat-label">证书数量</div>
+            <div class="stat-value" id="statTotal">—</div>
+          </div>
+          <div class="stat">
+            <div class="stat-label">当前结果</div>
+            <div class="stat-value" id="statShown">—</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel">
+        <div class="panel-title">快捷筛选</div>
+        <div class="chips" id="chipBox">
+          <!-- JS 注入 -->
+        </div>
+      </div>
+
+      <div class="panel hint">
+        <div class="panel-title">操作提示</div>
+        <ul>
+          <li>点击卡片：打开证书详情</li>
+          <li>键盘：←/→ 切换上一张/下一张</li>
+          <li>Esc：关闭详情</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="content">
+      <div id="grid" class="grid"></div>
+
+      <div id="emptyState" class="empty hidden">
+        <div class="empty-title">没有匹配的证书</div>
+        <div class="empty-sub">试试换个关键词，或清空搜索。</div>
+        <button id="clearBtn" class="btn">清空搜索</button>
+      </div>
+    </section>
+  </main>
+
+  <!-- 详情弹层 -->
+  <div id="modal" class="modal hidden" role="dialog" aria-modal="true">
+    <div class="modal-backdrop" id="modalBackdrop"></div>
+
+    <div class="modal-card">
+      <div class="modal-head">
+        <div>
+          <div class="modal-title" id="mTitle">—</div>
+          <div class="modal-meta" id="mMeta">—</div>
+        </div>
+        <div class="modal-head-actions">
+          <button id="prevBtn" class="icon-btn" title="上一张 (←)">←</button>
+          <button id="nextBtn" class="icon-btn" title="下一张 (→)">→</button>
+          <button id="closeBtn" class="icon-btn" title="关闭 (Esc)">✕</button>
+        </div>
+      </div>
+
+      <div class="modal-body">
+        <div class="preview">
+          <img id="mImg" alt="证书图片预览" />
+        </div>
+
+        <div class="details">
+          <div class="kv">
+            <div class="k">日期</div><div class="v" id="mDate">—</div>
+            <div class="k">Presented to</div><div class="v" id="mName">—</div>
+            <div class="k">证书编号</div><div class="v mono" id="mId">—</div>
+            <div class="k">天文主题</div><div class="v" id="mTopic">—</div>
+            <div class="k">来源</div><div class="v" id="mSource">—</div>
+          </div>
+
+          <div class="block">
+            <div class="block-title">Explanation（说明摘要）</div>
+            <div class="block-text" id="mExplanation">—</div>
+          </div>
+
+          <div class="block">
+            <div class="block-title">关键词</div>
+            <div class="tag-row" id="mTags"></div>
+          </div>
+
+          <div class="block">
+            <div class="block-title">本地文件</div>
+            <div class="mono" id="mFile">—</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

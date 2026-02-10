@@ -1,0 +1,13 @@
+[
+  {
+    "id": "APOD-CERT-2003-FEB-14-ZZW",
+    "date": "2003-02-14",
+    "title": "The Heart in NGC 346",
+    "presented_to": "ZI ZHUO WANG",
+    "image": "images/证书3.jpeg",
+    "source": "NASA Astronomy Picture of the Day (APOD) Commemorative Certificate",
+    "topic": "NGC 346 / Small Magellanic Cloud / Chandra X-ray",
+    "explanation": "Yes, it's Valentine's Day and looking toward star cluster NGC 346 in our neighboring galaxy the Small Magellanic Cloud, astronomers have noted this heart-shaped cloud of hot, x-ray emitting gas in the cluster's central region. The false-color Chandra Observatory X-ray image also shows a strong X-ray source just above the heart-shaped cloud which corresponds to HD 5980, a remarkable massive binary star system that lies within the cluster. HD 5980 has been known to undergo dramatic brightness variations and has been likened to the luminous eruptive variable star Eta Carinae. At about 100 light-years across, NGC 346's heart-shaped cloud is probably the result of an ancient supernova explosion. Alternatively it may have been produced during past eruptions from the HD 5980 system, analogous to the nebula associated with Eta Carinae.",
+    "tags": ["APOD", "Valentine's Day", "NGC 346", "Small Magellanic Cloud", "Chandra", "X-ray", "HD 5980", "Eta Carinae", "supernova"]
+  }
+]
